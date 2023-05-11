@@ -1,8 +1,10 @@
+import entities.Bebidas;
 import entities.Itens;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class Main {
 
@@ -10,7 +12,7 @@ public class Main {
     public static void main(String[] args) {
         List<Itens> itens = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
-
+        AtomicReference<Double> conta = new AtomicReference<>((double) 0);
         Boolean on = true;
 
 
@@ -22,11 +24,12 @@ public class Main {
             }catch (Exception e){
                 count = -1;
             }
+            int qtd;
             switch (count){
                 case 0:
                     System.out.println("Detalhes(burgão): Pão, Queijo, Hambúrguer, Ovo, Alface, Tomate e Molho da casa.");
                     System.out.println("quantos burgão você deseja ?");
-                    int qtd;
+
                     try{
                          qtd = Integer.parseInt(sc.next());
                     }catch (Exception e){
@@ -34,11 +37,79 @@ public class Main {
                         qtd = 0;
                     }
                     if(qtd > 0) {
-                        itens.add(new Itens("burgão", "Pão, Queijo, Hambúrguer, Ovo, Alface, Tomate e Molho da casa.", qtd, 35.5));
+                        itens.add(new Itens("burgão",
+                                "Pão, Queijo, Hambúrguer, Ovo, Alface, Tomate e Molho da casa.",
+                                qtd, 35.5));
                     }
+                    qtd = 0;
                 break;
                 case 1:
-                    System.out.println("almoço adicionado");
+                    System.out.println("Detalhes(lasanha): lasanha, arroz, feijão, salada.");
+                    System.out.println("quantas lasanhas você deseja ?");
+
+                    try{
+                        qtd = Integer.parseInt(sc.next());
+                    }catch (Exception e){
+                        System.out.println("valor informado de maneira incorreta por padrão será encerrada a operação");
+                        qtd = 0;
+                    }
+                    if(qtd > 0) {
+                        itens.add(new Itens("lasanha",
+                                "Detalhes(lasanha): lasanha, arroz, feijão, salada.",
+                                qtd, 53.9));
+                    }
+                    qtd = 0;
+                break;
+                case 2:
+                    System.out.println("Detalhes(costela): costela, arroz, feijão, batata frita, salada.");
+                    System.out.println("quantas costelas você deseja ?");
+
+                    try{
+                        qtd = Integer.parseInt(sc.next());
+                    }catch (Exception e){
+                        System.out.println("valor informado de maneira incorreta por padrão será encerrada a operação");
+                        qtd = 0;
+                    }
+                    if(qtd > 0) {
+                        itens.add(new Itens("costela",
+                                "Detalhes(costela): costela, arroz, feijão, batata frita, salada.",
+                                qtd, 65.2));
+                    }
+                    qtd = 0;
+                break;
+                case 3:
+                    System.out.println("Detalhes(suco de maracuja): um suco feito da poupa do maracuja");
+                    System.out.println("quantos sucos você deseja ?");
+
+                    try{
+                        qtd = Integer.parseInt(sc.next());
+                    }catch (Exception e){
+                        System.out.println("valor informado de maneira incorreta por padrão será encerrada a operação");
+                        qtd = 0;
+                    }
+                    if(qtd > 0) {
+                        itens.add(new Bebidas("suco de maracuja",
+                                "Detalhes(suco de maracuja): um suco feito da poupa do maracuja",
+                                qtd, 12.5,false));
+                    }
+                    qtd = 0;
+                break;
+                case 4:
+                    System.out.println("Detalhes(coca): refrigerante pronto retirado junto com o lanche");
+                    System.out.println("quantas cocas você deseja ?");
+
+                    try{
+                        qtd = Integer.parseInt(sc.next());
+                    }catch (Exception e){
+                        System.out.println("valor informado de maneira incorreta por padrão será encerrada a operação");
+                        qtd = 0;
+                    }
+                    if(qtd > 0) {
+                        itens.add(new Bebidas("coca",
+                                "Detalhes(coca): refrigerante pronto retirado junto com o lanche",
+                                qtd, 12.5,true));
+                    }
+                    qtd = 0;
                 break;
                 case 10:
                     System.out.println("finalizando pedido ...");
@@ -50,7 +121,10 @@ public class Main {
                 break;
             }
         }
-        itens.forEach(System.out::println);
+        itens.forEach(i ->{
+             conta.set(conta.get() + (i.getPreco() * i.getQuantidade()));
+        });
+        System.out.println("conta tem o preço final de : R$"+conta);
     }
     public static void menu(){
         System.out.println("------ Ola seja bem vindo ------"+
@@ -66,15 +140,7 @@ public class Main {
     public static double prices(int menuId){
         double res;
         switch (menuId){
-            case 1 :
-                res = 63.9;
-            break;
-            case 2:
-                res = 45.2;
-            break;
-            case 3:
-                res = 12.5;
-            break;
+
             case 4:
                 res = 6.5;
             break;

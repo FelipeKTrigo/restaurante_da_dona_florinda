@@ -49,11 +49,9 @@ public class Itens {
 
     @Override
     public String toString() {
-        return "Itens{" +
-                "nome='" + nome + '\'' +
+        return  "nome='" + nome + '\'' +
                 ", descricao='" + descricao + '\'' +
                 ", quantidade=" + quantidade +
-                ", preco=" + preco +
-                '}';
+                ", preco=" + preco;
     }
 }

@@ -17,4 +17,13 @@ public class Bebidas extends Itens{
     public void setPronta(Boolean pronta) {
         this.pronta = pronta;
     }
+
+    @Override
+    public String toString() {
+        return"nome='" + super.getNome() + '\'' +
+                ", descricao='" + super.getDescricao()+ '\'' +
+                ", quantidade=" + super.getQuantidade()+ '\'' +
+                ", preco=" + super.getPreco()+ '\'' +
+                "pronta=" + pronta;
+    }
 }
