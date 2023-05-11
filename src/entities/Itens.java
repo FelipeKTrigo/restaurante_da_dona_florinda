@@ -46,4 +46,14 @@ public class Itens {
     public void setPreco(Double preco) {
         this.preco = preco;
     }
+
+    @Override
+    public String toString() {
+        return "Itens{" +
+                "nome='" + nome + '\'' +
+                ", descricao='" + descricao + '\'' +
+                ", quantidade=" + quantidade +
+                ", preco=" + preco +
+                '}';
+    }
 }
