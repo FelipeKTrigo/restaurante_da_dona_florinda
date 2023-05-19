@@ -50,7 +50,8 @@ public class Mesa {
         return "Mesa{" +
                 "numero=" + numero +
                 ", itens=" + itens +
-                ", contafinal='" + nota + '\'' +
+                ", conta=" + conta +
+                ", nota='" + nota + '\'' +
                 '}';
     }
 }

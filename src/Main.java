@@ -101,21 +101,24 @@ public class Main {
                                 mesa.get(mesa.size() - 1).setItens(itens);
                                 mesa.forEach(m -> {
                                     m.getItens().forEach(i -> {
+                                        m.setItens(itens);
                                         m.setNota(i.getNome() + " --- R$" + (i.getPreco() * i.getQuantidade()) + " | " + i.getQuantidade() + "X");
                                         conta.set(conta.get() + (i.getPreco() * i.getQuantidade()));
+                                        m.setConta(conta.get());
                                     });
                                 });
                                 itens.clear();
                                 on = false;
-                                break;
+                            break;
 
                             default:
                                 System.out.println("Insira uma entrada valida");
-                                break;
+                            break;
                         }
                     }
                     break;
                 case 2:
+                    System.out.println("mesa");
                     mesa.remove(mesa.get(0));
                     break;
                 case 3:
