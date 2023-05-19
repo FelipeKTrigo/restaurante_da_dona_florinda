@@ -1,15 +1,23 @@
 package entities;
 
+import java.util.List;
+
 public class Mesa {
     private int numero;
-    private String statusMesa;
+    private List<Itens> itens;
+    public Mesa(){}
 
-    public Mesa() {
+    public Mesa(int numero, List<Itens> itens) {
+        this.numero = numero;
+        this.itens = itens;
     }
 
-    public Mesa(int numero, String statusMesa) {
-        this.numero = numero;
-        this.statusMesa = statusMesa;
+    public List<Itens> getItens() {
+        return itens;
+    }
+
+    public void setItens(List<Itens> itens) {
+        this.itens = itens;
     }
 
     public int getNumero() {
@@ -20,11 +28,4 @@ public class Mesa {
         this.numero = numero;
     }
 
-    public String getStatusMesa() {
-        return statusMesa;
-    }
-
-    public void setStatusMesa(String statusMesa) {
-        this.statusMesa = statusMesa;
-    }
 }
