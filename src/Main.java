@@ -25,8 +25,9 @@ public class Main {
             } catch (Exception e) {
                 atendente = -1;
             }
-            switch (atendente){
+            switch (atendente) {
                 case 1:
+                    perguntasmesa(mesa, sc);
                     while (on) {
                         menupedidos();
                         int count;
@@ -97,7 +98,13 @@ public class Main {
 
                                 break;
                             case 10:
-                                mesa.get(0).setItens(itens);
+                                mesa.get(mesa.size() - 1).setItens(itens);
+                                mesa.forEach(m -> {
+                                    m.getItens().forEach(i -> {
+                                        m.setNota(i.getNome() + " --- R$" + (i.getPreco() * i.getQuantidade()) + " | " + i.getQuantidade() + "X");
+                                        conta.set(conta.get() + (i.getPreco() * i.getQuantidade()));
+                                    });
+                                });
                                 itens.clear();
                                 on = false;
                                 break;
@@ -107,23 +114,24 @@ public class Main {
                                 break;
                         }
                     }
-                break;
+                    break;
                 case 2:
-
-                break;
+                    mesa.remove(mesa.get(0));
+                    break;
                 case 3:
-
-                break;
+                    mesa.forEach(m->{
+                        System.out.println(m.toString());
+                    });
+                    sessao = false;
+                    break;
                 default:
+                    System.out.println("Insira uma entrada valida");
             }
 
-            itens.forEach(i -> {
-                conta.set(conta.get() + (i.getPreco() * i.getQuantidade()));
-                System.out.println(i.getNome() + " --- R$" + (i.getPreco() * i.getQuantidade()) + " | " + i.getQuantidade() + "X");
-            });
-            System.out.println("conta tem o preço final de : R$" + conta);
+
         }
     }
+
     private static void menuat() {
         System.out.println("1.fazer um pedido" +
                 "\n2.encerrar um pedido" +
@@ -149,6 +157,16 @@ public class Main {
             System.out.println("valor informado de maneira incorreta por padrão será encerrada a operação\n");
         }
         return 0;
+    }
+
+    private static Mesa perguntasmesa(List<Mesa> m, Scanner sc) {
+        System.out.println("qual é o numero da mesa");
+        try {
+            m.add(new Mesa(Integer.parseInt(sc.next())));
+        } catch (Exception e) {
+            System.out.println("mesa invalida");
+        }
+        return m.get(m.size() - 1);
     }
 
 }
