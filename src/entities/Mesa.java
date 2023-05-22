@@ -49,7 +49,6 @@ public class Mesa {
     public String toString() {
         return "Mesa{" +
                 "numero=" + numero +
-                ", itens=" + itens +
                 ", conta=" + conta +
                 ", nota='" + nota + '\'' +
                 '}';
