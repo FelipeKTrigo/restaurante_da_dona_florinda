@@ -1,4 +1,8 @@
-package entities;
+package utils;
+
+import entities.Bebidas;
+import entities.Itens;
+import entities.Mesa;
 
 import java.util.List;
 import java.util.Scanner;
@@ -86,9 +90,9 @@ public final class Utils {
                             m.getItens().forEach(i -> {
                                 m.setItens(itens);
                                 if (m.getConta() == null) {
-                                    m.setNota(i.getNome() + " --- R$" + (i.getPreco() * i.getQuantidade()) + " | " + i.getQuantidade() + "X");
+                                    m.setNota(i.getNome() + " --- R$" + i.getPreco() + " | " + i.getQuantidade() + "X");
                                 } else {
-                                    m.setNota(m.getNota() + "\n" + i.getNome() + " --- R$" + (i.getPreco() * i.getQuantidade()) + " | " + i.getQuantidade() + "X");
+                                    m.setNota(m.getNota() + "\n" + i.getNome() + " --- R$" + i.getPreco() + " | " + i.getQuantidade() + "X");
                                 }
                                 conta.set(conta.get() + (i.getPreco() * i.getQuantidade()));
                                 m.setConta(conta.get());
@@ -136,8 +140,9 @@ public final class Utils {
     }
     public static void menuat() {
         System.out.println("1.fazer um pedido" +
-                "\n2.encerrar um pedido" +
-                "\n3.finalizar sessão"
+                "\n2.encerrar primeiro pedido" +
+                "\n3.listar pedidos"+
+                "\n4.finalizar sessão"
         );
     }
 }

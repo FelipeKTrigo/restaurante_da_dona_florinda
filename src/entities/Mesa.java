@@ -47,10 +47,11 @@ public class Mesa {
 
     @Override
     public String toString() {
-        return "Mesa{" +
-                "numero=" + numero +
-                ", conta=" + conta +
-                ", nota='" + nota + '\'' +
-                '}';
+        return " ------------\n"+
+                "|    Mesa    |\n"+
+                "|numero = "+numero+"|\n"+
+                "|preço total = R$" + conta +"|\n"+
+                "|descrição do pedido|\n" + nota + "\n"+
+                " ------------\n";
     }
 }
