@@ -12,8 +12,10 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
         List<Itens> itens = new ArrayList<>();
         List<Mesa> mesa = new ArrayList<>();
-        Scanner sc = new Scanner(System.in);
+        List<Mesa> remove = new ArrayList<>();
 
+        Scanner sc = new Scanner(System.in);
+        Integer num = 0;
         Boolean sessao = true;
         while (sessao) {
             Utils.menuat();
@@ -26,30 +28,44 @@ public class Main {
             switch (atendente) {
                 case 1:
                     Utils.perguntasmesa(mesa, sc);
-                    Utils.novoPedido(itens,mesa,sc);
-                break;
+                    Utils.novoPedido(itens, mesa, sc);
+                    break;
                 case 2:
                     if (!mesa.isEmpty()) {
-                        System.out.println("PEDIDO  :\n"+mesa.get(0).toString());
-                        mesa.remove(0);
-                    }else {
+
+                        System.out.println("qual é o numero da mesa");
+                        try {
+                            num = Integer.parseInt(sc.next());
+                        }catch (Exception e){
+                            System.out.println("valor invalido");
+                        }
+                        Integer finalNum = num;
+                        mesa.forEach(m -> {
+                            if (m.getNumero() == finalNum) {
+                                System.out.println("PEDIDO  :\n" + m + "\n PRONTO");
+                                remove.add(m);
+                            }
+                        });
+                        mesa.removeAll(remove);
+                        remove.clear();
+                    } else {
                         System.out.println("todos pedidos prontos");
                     }
-                break;
+                    break;
                 case 3:
-                    if(!mesa.isEmpty()){
-                        mesa.forEach(m->{
+                    if (!mesa.isEmpty()) {
+                        mesa.forEach(m -> {
                             System.out.println(m.toString());
                         });
 
-                    }else{
+                    } else {
                         System.out.println("todos pedidos prontos");
                     }
-                break;
+                    break;
                 case 4:
                     System.out.println("finalizando sessão");
                     sessao = false;
-                break;
+                    break;
                 default:
                     System.out.println("Insira uma entrada valida");
             }

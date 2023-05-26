@@ -3,13 +3,13 @@ package entities;
 import java.util.List;
 
 public class Mesa {
-    private int numero;
+    private Integer numero;
     private List<Itens> itens;
     private Double conta;
     private String nota;
     public Mesa(){}
 
-    public Mesa(int numero) {
+    public Mesa(Integer numero) {
         this.numero = numero;
     }
 
@@ -25,7 +25,7 @@ public class Mesa {
         return numero;
     }
 
-    public void setNumero(int numero) {
+    public void setNumero(Integer numero) {
         this.numero = numero;
     }
 
