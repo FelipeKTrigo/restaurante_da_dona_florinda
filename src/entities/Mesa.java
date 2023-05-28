@@ -47,6 +47,12 @@ public class Mesa {
 
     @Override
     public String toString() {
+        if(conta==null){
+            conta = 0.0;
+        }
+        if(nota==null){
+            nota = "nada foi pedido";
+        }
         return " ------------\n"+
                 "|    Mesa    |\n"+
                 "|numero = "+numero+"|\n"+

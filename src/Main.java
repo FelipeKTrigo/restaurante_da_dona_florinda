@@ -46,10 +46,13 @@ public class Main {
                                 remove.add(m);
                             }
                         });
+                        if(remove.isEmpty()){
+                            System.out.println("mesa ou pedido não encontrado");
+                        }
                         mesa.removeAll(remove);
                         remove.clear();
                     } else {
-                        System.out.println("todos pedidos prontos");
+                        System.out.println("todos pedidos prontos\n");
                     }
                     break;
                 case 3:
