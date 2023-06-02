@@ -5,6 +5,7 @@ import utils.Utils;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class Main {
 
@@ -31,6 +32,33 @@ public class Main {
                     Utils.novoPedido(itens, mesa, sc);
                     break;
                 case 2:
+                    System.out.println("Mesas para Receber:");
+                    mesa.forEach(m->{
+                        System.out.print(m.getNumero()+", ");
+                    });
+                    if (!mesa.isEmpty()) {
+                        System.out.println("\nqual é o numero da mesa");
+                        try {
+                            num = Integer.parseInt(sc.next());
+                        }catch (Exception e){
+                            System.out.println("valor invalido");
+                        }
+                        Integer finalNum = num;
+                        AtomicReference<Mesa> temp = null;
+                        mesa.forEach(m -> {
+                            if (m.getNumero() == finalNum) {
+                                temp.set(m);
+                                System.out.println("PEDIDO  :\n" + m + "\n PRONTO PARA RECEBIMENTO");
+                            }
+                        });
+                        if(temp.get()==null){
+                            System.out.println("Pedido não encotrado pelo numero"+num);
+                        }
+                    } else {
+                        System.out.println("todos pedidos entregues\n");
+                    }
+                break;
+                case 3:
                     System.out.println("Mesas para finalizar:");
                     mesa.forEach(m->{
                         System.out.print(m.getNumero()+", ");
@@ -50,7 +78,7 @@ public class Main {
                                 }catch (Exception e){
                                     System.out.println(e.getMessage());
                                 }
-                                System.out.println("PEDIDO  :\n" + m + "\n PRONTO");
+                                System.out.println("PEDIDO  :\n" + m + "\n FINALIZADO");
                                 remove.add(m);
                             }
                         });
@@ -60,10 +88,10 @@ public class Main {
                         mesa.removeAll(remove);
                         remove.clear();
                     } else {
-                        System.out.println("todos pedidos prontos\n");
+                        System.out.println("todos pedidos finalizados\n");
                     }
                     break;
-                case 3:
+                case 4:
                     if (!mesa.isEmpty()) {
                         mesa.forEach(m -> {
                             System.out.println(m.toString());
@@ -73,7 +101,7 @@ public class Main {
                         System.out.println("todos pedidos prontos");
                     }
                     break;
-                case 4:
+                case 5:
                     System.out.println("finalizando sessão");
                     sessao = false;
                     break;
