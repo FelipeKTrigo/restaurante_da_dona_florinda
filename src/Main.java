@@ -1,4 +1,4 @@
-import entities.Itens;
+import entities.Comidas;
 import entities.Mesa;
 import utils.Utils;
 
@@ -10,7 +10,7 @@ public class Main {
 
 
     public static void main(String[] args) throws InterruptedException {
-        List<Itens> itens = new ArrayList<>();
+        List<Comidas> itens = new ArrayList<>();
         List<Mesa> mesa = new ArrayList<>();
         List<Mesa> remove = new ArrayList<>();
 
@@ -31,9 +31,12 @@ public class Main {
                     Utils.novoPedido(itens, mesa, sc);
                     break;
                 case 2:
+                    System.out.println("Mesas para finalizar:");
+                    mesa.forEach(m->{
+                        System.out.print(m.getNumero()+", ");
+                    });
                     if (!mesa.isEmpty()) {
-
-                        System.out.println("qual é o numero da mesa");
+                        System.out.println("\nqual é o numero da mesa");
                         try {
                             num = Integer.parseInt(sc.next());
                         }catch (Exception e){
@@ -42,6 +45,11 @@ public class Main {
                         Integer finalNum = num;
                         mesa.forEach(m -> {
                             if (m.getNumero() == finalNum) {
+                                try {
+                                    Utils.pagamento(sc);
+                                }catch (Exception e){
+                                    System.out.println(e.getMessage());
+                                }
                                 System.out.println("PEDIDO  :\n" + m + "\n PRONTO");
                                 remove.add(m);
                             }

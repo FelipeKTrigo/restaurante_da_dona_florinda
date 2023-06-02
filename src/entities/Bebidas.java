@@ -1,6 +1,6 @@
 package entities;
 
-public class Bebidas extends Itens{
+public class Bebidas extends Comidas {
     //se é refri ou não(se for false é suco, se for true é refri ou drink)
     private Boolean pronta;
 

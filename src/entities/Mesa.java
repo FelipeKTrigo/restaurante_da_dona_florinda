@@ -4,20 +4,24 @@ import java.util.List;
 
 public class Mesa {
     private Integer numero;
-    private List<Itens> itens;
+    private List<Comidas> itens;
     private Double conta;
     private String nota;
     public Mesa(){}
-
+    public Mesa(Mesa m){
+        this.numero = m.getNumero();
+        this.conta = Math.floor(m.getConta());
+        this.nota = m.getNota();
+    }
     public Mesa(Integer numero) {
         this.numero = numero;
     }
 
-    public List<Itens> getItens() {
+    public List<Comidas> getItens() {
         return itens;
     }
 
-    public void setItens(List<Itens> itens) {
+    public void setItens(List<Comidas> itens) {
         this.itens = itens;
     }
 

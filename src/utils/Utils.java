@@ -1,7 +1,7 @@
 package utils;
 
 import entities.Bebidas;
-import entities.Itens;
+import entities.Comidas;
 import entities.Mesa;
 
 import java.util.List;
@@ -12,7 +12,7 @@ public final class Utils {
     static Boolean on = true;
     static AtomicReference<Double> conta = new AtomicReference<>((double) 0);
 
-    public static void novoPedido(List<Itens> itens, List<Mesa> mesa, Scanner sc) {
+    public static void novoPedido(List<Comidas> itens, List<Mesa> mesa, Scanner sc) throws InterruptedException {
         on = true;
         while (on) {
             menupedidos();
@@ -33,7 +33,7 @@ public final class Utils {
 
                     qtd = message(sc);
                     if (qtd > 0) {
-                        itens.add(new Itens("burgão",
+                        itens.add(new Comidas("burgão",
                                 "Pão, Queijo, Hambúrguer, Ovo, Alface, Tomate e Molho da casa.",
                                 qtd, 35.5));
                     }
@@ -44,136 +44,141 @@ public final class Utils {
 
                     qtd = message(sc);
                     if (qtd > 0) {
-                        itens.add(new Itens("lasanha",
+                        itens.add(new Comidas("lasanha",
                                 "Detalhes(lasanha): lasanha, arroz, feijão, salada.",
                                 qtd, 24.9));
                     }
 
                     break;
                 case 2:
-                    System.out.println("quantas costelas você deseja ?");
                     System.out.println("Detalhes(costela): costela, arroz, feijão, batata frita, salada.");
+                    System.out.println("quantas costelas você deseja ?");
 
                     qtd = message(sc);
                     if (qtd > 0) {
-                        itens.add(new Itens("costela",
+                        itens.add(new Comidas("costela",
                                 "Detalhes(costela): costela, arroz, feijão, batata frita, salada.",
                                 qtd, 65.2));
                     }
 
                     break;
                 case 3:
-                    System.out.println("quantas sanduiche de frango você deseja ?");
                     System.out.println("Detalhes(sanduiche de frango): pão, frango, maionese, batata rustica, salada.");
+                    System.out.println("quantas sanduiche de frango você deseja ?");
 
                     qtd = message(sc);
                     if (qtd > 0) {
-                        itens.add(new Itens("sanduiche de frango",
+                        itens.add(new Comidas("sanduiche de frango",
                                 "Detalhes(sanduiche de frango): pão, frango, maionese, batata rustica, salada.",
                                 qtd, 7.0));
                     }
                     break;
 
                 case 4:
-                    System.out.println("quantas Feijoada você deseja ?");
                     System.out.println("Detalhes(Feijoada): Arroz, Feijão, Linguica defumada, Orelha, Pé do porco, Costelinha, Couve refogada, Laranja.");
+                    System.out.println("quantas Feijoada você deseja ?");
 
                     qtd = message(sc);
                     if (qtd > 0) {
-                        itens.add(new Itens("Feijoada",
+                        itens.add(new Comidas("Feijoada",
                                 "Detalhes(Feijoada): Arroz, Feijão, Linguica defumada, Orelha, Pé do porco, Costelinha, Couve refogada, Laranja",
                                 qtd, 25.5));
                     }
                     break;
                 case 5:
-                    System.out.println("quantas Picanha você deseja ?");
                     System.out.println("Detalhes(Picanha): Arroz, feijão, Polenta Frita, batata frita, Vinagrete,Picanha.");
+                    System.out.println("quantas Picanha você deseja ?");
 
                     qtd = message(sc);
                     if (qtd > 0) {
-                        itens.add(new Itens("Picanha",
+                        itens.add(new Comidas("Picanha",
                                 "Detalhes(Picanha): Arroz, feijão, Polenta Frita, batata frita, Vinagrete,Picanha.",
                                 qtd, 40.5));
                     }
                     break;
                 case 6:
-                    System.out.println("quantas Lagosta você deseja ?");
                     System.out.println("Detalhes(Lagosta): Lagosta, Arroz, Molho Branco, Majericão, Limão, Salada");
+                    System.out.println("quantas Lagosta você deseja ?");
 
                     qtd = message(sc);
                     if (qtd > 0) {
-                        itens.add(new Itens("Lagosta",
+                        itens.add(new Comidas("Lagosta",
                                 "Detalhes(Lagosta): pão, frango, maionese, batata rustica, salada.",
                                 qtd, 70.5));
                     }
                     break;
                 case 7:
-                    System.out.println("quantas Spaguete você deseja ?");
                     System.out.println("Detalhes(Spaguete): macarrão, molho de tomate, almodegas (patinho).");
+                    System.out.println("quantas Spaguete você deseja ?");
+
 
                     qtd = message(sc);
                     if (qtd > 0) {
-                        itens.add(new Itens("Spaguete",
+                        itens.add(new Comidas("Spaguete",
                                 "Detalhes(Spaguete): macarrão, molho de tomate, almodegas (patinho)",
                                 qtd, 15.5));
                     }
                     break;
                 case 8:
-                    System.out.println("quantas Escondidinho você deseja ?");
                     System.out.println("Detalhes(Escondidinho): Arroz, Feijão, Escondidnho:Pure de batata, molho branco, frango desfiado, Batata Roche.");
+                    System.out.println("quantas Escondidinho você deseja ?");
 
                     qtd = message(sc);
                     if (qtd > 0) {
-                        itens.add(new Itens("Escondidinho",
+                        itens.add(new Comidas("Escondidinho",
                                 "Detalhes(Escondidinho): Arroz, Feijão, Escondidnho:Pure de batata, molho branco, frango desfiado, Batata Roche.",
                                 qtd, 22.2));
                     }
                     break;
                 case 9:
-                    System.out.println("quantas Strogonoff você deseja ?");
                     System.out.println("Detalhes(Strogonoff): Arroz, Strogonoff de Frango, batara palha, salada.");
+                    System.out.println("quantas Strogonoff você deseja ?");
+
 
                     qtd = message(sc);
                     if (qtd > 0) {
-                        itens.add(new Itens("Strogonoff",
+                        itens.add(new Comidas("Strogonoff",
                                 "Detalhes(Strogonoff): Arroz, Strogonoff de Frango, batara palha, salada.",
                                 qtd, 25.5));
                     }
                     break;
                 case 10:
-                    System.out.println("quantas Ovo Porche você deseja ?");
                     System.out.println("Detalhes(Ovo Porche): Arroz, feijão, batata rustica, Ovo, molho Branco, salada de tomate, farofa de alho.");
+                    System.out.println("quantas Ovo Porche você deseja ?");
+
 
                     qtd = message(sc);
                     if (qtd > 0) {
-                        itens.add(new Itens("Ovo Porche",
+                        itens.add(new Comidas("Ovo Porche",
                                 "Detalhes(Ovo Porche): Arroz, feijão, batata rustica, Ovo, molho Branco, salada de tomate, farofa de alho.",
                                 qtd, 12.5));
                     }
                     break;
                 case 11:
-                    System.out.println("quantas Panqueca você deseja ?");
                     System.out.println("Detalhes(Panqueca): Arroz, feijão, batata rustica, Panmqueca de carne, molho de tomate, farofa de flocão.");
+                    System.out.println("quantas Panqueca você deseja ?");
+
 
                     qtd = message(sc);
                     if (qtd > 0) {
-                        itens.add(new Itens("Panqueca",
+                        itens.add(new Comidas("Panqueca",
                                 "Detalhes(Panqueca): Arroz, feijão, batata rustica, Panmqueca de carne, molho de tomate, farofa de flocão.",
                                 qtd, 12.5));
                     }
                     break;
                 case 12:
-                    System.out.println("quantas Sanduiche de Presunto (vegano) você deseja ?");
                     System.out.println("Detalhes(Sanduiche de Presunto (vegano)): Pão, Presunto de soja, alface, tomate, maionese,Ketchup.");
+                    System.out.println("quantas Sanduiche de Presunto (vegano) você deseja ?");
+
 
                     qtd = message(sc);
                     if (qtd > 0) {
-                        itens.add(new Itens("Sanduiche de Presunto (vegano)",
+                        itens.add(new Comidas("Sanduiche de Presunto (vegano)",
                                 "Detalhes(Sanduiche de Presunto (vegano)): Pão, Presunto de soja, alface, tomate, maionese,Ketchup.",
                                 qtd, 7.0));
                     }
                     break;
-                    /* Bebidas */
+                /* Bebidas */
                 case 13:
                     System.out.println("Detalhes(suco de maracuja): um suco feito da poupa do maracuja");
                     System.out.println("quantos sucos você deseja ?");
@@ -259,6 +264,7 @@ public final class Utils {
 
                     break;
                 case 20:
+
                     mesa.get(mesa.size() - 1).setItens(itens);
 
                     mesa.forEach(m -> {
@@ -270,7 +276,12 @@ public final class Utils {
                                 } else {
                                     m.setNota(m.getNota() + "\n" + i.getNome() + " --- R$" + i.getPreco() + " | " + i.getQuantidade() + "X");
                                 }
-                                conta.set(conta.get() + (i.getPreco() * i.getQuantidade()));
+                                if(m.getConta()==null){
+                                    conta.set(0 + (i.getPreco() * i.getQuantidade()));
+                                }else{
+                                    conta.set(conta.get() + (i.getPreco() * i.getQuantidade()));
+                                }
+
                                 m.setConta(conta.get());
                             });
                         }
@@ -278,6 +289,15 @@ public final class Utils {
                     conta.set(0.0);
                     itens.clear();
                     on = false;
+                    System.out.println("Enviando pedido para a cozinha");
+                    Thread.sleep(500);
+                    System.out.println(".");
+                    Thread.sleep(500);
+                    System.out.println(".");
+                    Thread.sleep(500);
+                    System.out.println(".");
+                    Thread.sleep(250);
+                    System.out.println("Enviado\n");
                     break;
 
                 default:
@@ -310,26 +330,88 @@ public final class Utils {
                         "9. Strogonoff R$ 25.5\n" +
                         "10.Ovo Poche R$ 12.5\n" +
                         "11. panqueca R$ 15.5\n" +
-                        "12. sanduiche de presunto (vegano) R$ 7.5"+
+                        "12. sanduiche de presunto (vegano) R$ 7.5" +
                         "\n ---- Bebidas ----" +
                         "\n 13.suco de maracuja R$12,5" +
                         "\n 14.coca R$7,5" +
-                        "\n 15 Guarana Jesus R$ 8.0"+
-                        "\n 16 itubaina R$ 7.5"+
-                        "\n 17 café (uma xicara) Sem mosca R$ 5.5"+
-                        "\n 18 café com mosca R$ 0.0"+
-                        "\n 19 schweppes R$ 12.5"+
+                        "\n 15 Guarana Jesus R$ 8.0" +
+                        "\n 16 itubaina R$ 7.5" +
+                        "\n 17 café (uma xicara) Sem mosca R$ 5.5" +
+                        "\n 18 café com mosca R$ 0.0" +
+                        "\n 19 schweppes R$ 12.5" +
                         "\n 20.finalizar pedido");
     }
 
-    public static Mesa perguntasmesa(List<Mesa> m, Scanner sc) {
+    public static void perguntasmesa(List<Mesa> m, Scanner sc) {
         System.out.println("qual é o numero da mesa");
         try {
-            m.add(new Mesa(Integer.parseInt(sc.next())));
+            List<Mesa> l = null;
+            Integer a = Integer.parseInt(sc.next());
+            AtomicReference<Mesa> mesat = null;
+            m.forEach(q -> {
+                if (q.getNumero() == a) {
+                    mesat.set(new Mesa(q));
+                    l.add(mesat.get());
+                }
+            });
+            if (l == null) {
+                m.add(new Mesa(a));
+            } else {
+                m.add(new Mesa(l.get(0)));
+                l.clear();
+            }
+            m.remove(l);
         } catch (Exception e) {
-            System.out.println("mesa invalida");
+            e.getCause();
         }
-        return m.get(m.size() - 1);
+    }
+
+    public static void pagamento(Scanner sc) throws InterruptedException {
+        Integer x = 0;
+        System.out.println("qual é o metodo de pagamento\n" +
+                "1.Debito\n" +
+                "2.Credito\n" +
+                "3.Pix");
+        try {
+            x = Integer.parseInt(sc.next());
+        } catch (Exception e) {
+            System.out.println("opção invalida");
+        }
+        switch (x) {
+            case 1:
+                System.out.println("Aproxime o cartão de Debito");
+                Thread.sleep(500);
+                System.out.println(".");
+                Thread.sleep(500);
+                System.out.println(".");
+                Thread.sleep(500);
+                System.out.println(".");
+                Thread.sleep(250);
+                System.out.println("aprovado\n");
+                break;
+            case 2:
+                System.out.println("Aproxime o cartão de Credito");
+                Thread.sleep(500);
+                System.out.println(".");
+                Thread.sleep(500);
+                System.out.println(".");
+                Thread.sleep(500);
+                System.out.println(".");
+                Thread.sleep(250);
+                System.out.println("aprovado\n");
+                break;
+            case 3:
+                System.out.println("Pix do restaurante:PIXFLORINDA@GMAIL.COM");
+                Thread.sleep(500);
+                System.out.println(".");
+                Thread.sleep(500);
+                System.out.println(".");
+                Thread.sleep(500);
+                System.out.println(".");
+                Thread.sleep(250);
+                System.out.println("aprovado\n");
+                break;
+        }
     }
 
     public static void menuat() {
