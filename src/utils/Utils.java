@@ -416,9 +416,10 @@ public final class Utils {
 
     public static void menuat() {
         System.out.println("1.fazer um pedido" +
-                "\n2.encerrar um pedido" +
-                "\n3.listar pedidos" +
-                "\n4.finalizar sessão"
+                "\n2.entregar um pedido pronto" +
+                "\n3.encerrar um pedido" +
+                "\n4.listar pedidos" +
+                "\n5.finalizar sessão"
         );
     }
 }
