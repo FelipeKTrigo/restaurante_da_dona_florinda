@@ -12,7 +12,7 @@ public final class Utils {
     static Boolean on = true;
     static AtomicReference<Double> conta = new AtomicReference<>((double) 0);
 
-    public static void novoPedido(List<Comidas> itens, List<Mesa> mesa, Scanner sc) throws InterruptedException {
+    public static void novoPedido(List<Comidas> itens, List<Mesa> mesas, Scanner sc) throws InterruptedException {
         on = true;
         while (on) {
             menupedidos();
@@ -265,10 +265,10 @@ public final class Utils {
                     break;
                 case 20:
 
-                    mesa.get(mesa.size() - 1).setItens(itens);
+                    mesas.get(mesas.size() - 1).setItens(itens);
 
-                    mesa.forEach(m -> {
-                        if (mesa.get(mesa.size() - 1) == m) {
+                    mesas.forEach(m -> {
+                        if (mesas.get(mesas.size() - 1) == m) {
                             m.getItens().forEach(i -> {
                                 m.setItens(itens);
                                 if (m.getConta() == null) {
